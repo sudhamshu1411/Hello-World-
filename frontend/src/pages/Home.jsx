@@ -33,8 +33,8 @@ const Home = () => {
     const handleMouseMove = (e) => {
       if (parallaxRef.current) {
         const { clientX, clientY } = e;
-        const xPos = (clientX / window.innerWidth - 0.5) * 20;
-        const yPos = (clientY / window.innerHeight - 0.5) * 20;
+        const xPos = (clientX / window.innerWidth - 0.5) * 15;
+        const yPos = (clientY / window.innerHeight - 0.5) * 15;
         parallaxRef.current.style.transform = `translate(${xPos}px, ${yPos}px)`;
       }
     };
@@ -62,15 +62,15 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Generate particles
+  // Generate fewer, larger particles
   const generateParticles = () => {
     const particles = [];
-    for (let i = 0; i < 50; i++) {
-      const size = Math.random() * 4 + 2;
+    for (let i = 0; i < 25; i++) {
+      const size = Math.random() * 6 + 4;
       const top = Math.random() * 100;
       const left = Math.random() * 100;
-      const delay = Math.random() * 20;
-      const duration = Math.random() * 10 + 15;
+      const delay = Math.random() * 25;
+      const duration = Math.random() * 15 + 20;
       particles.push(
         <div
           key={i}
@@ -124,7 +124,7 @@ const Home = () => {
 
   return (
     <div className="starton-page">
-      {/* Animated Background */}
+      {/* Animated Background - Simplified */}
       <div className="animated-background">
         <div className="grid-pattern"></div>
         <div className="particles-container">
@@ -132,7 +132,6 @@ const Home = () => {
         </div>
         <div className="glow-orb glow-orb-1"></div>
         <div className="glow-orb glow-orb-2"></div>
-        <div className="glow-orb glow-orb-3"></div>
       </div>
 
       {/* Header */}
@@ -165,7 +164,7 @@ const Home = () => {
         <div className="container">
           <div className="hero-content" ref={parallaxRef}>
             <h1 className="hero-title floating">Strategy That Builds Momentum.</h1>
-            <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality.</p>
+            <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
             <Button onClick={scrollToContact} className="btn-primary btn-hero">
               Start Your Journey <ArrowRight className="ml-2" size={20} />
             </Button>
@@ -189,7 +188,7 @@ const Home = () => {
                   <ul className="service-features">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="service-feature">
-                        <CheckCircle2 size={16} className="feature-icon" />
+                        <CheckCircle2 size={18} className="feature-icon" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -230,7 +229,7 @@ const Home = () => {
           <div className="clients-grid">
             {mockClients.map((client, idx) => (
               <div key={idx} className="client-card animate-on-scroll" style={{ animationDelay: `${idx * 0.1}s` }}>
-                <Target className="client-icon" size={32} />
+                <Target className="client-icon" size={36} />
                 <h3 className="client-name">{client}</h3>
               </div>
             ))}
@@ -245,28 +244,28 @@ const Home = () => {
             <div className="contact-info animate-on-scroll">
               <h2 className="contact-title">Ready to Start?</h2>
               <p className="contact-subtitle">
-                Let's discuss how we can help you build unstoppable momentum and achieve breakthrough results.
+                Let's discuss how we can help you build unstoppable momentum and achieve breakthrough results that transform your business.
               </p>
               <div className="contact-features">
                 <div className="contact-feature">
-                  <Sparkles className="contact-feature-icon" size={24} />
+                  <Sparkles className="contact-feature-icon" size={28} />
                   <div>
                     <h4>Strategic Approach</h4>
-                    <p>Data-driven decisions that deliver</p>
+                    <p>Data-driven decisions that deliver measurable results</p>
                   </div>
                 </div>
                 <div className="contact-feature">
-                  <TrendingUp className="contact-feature-icon" size={24} />
+                  <TrendingUp className="contact-feature-icon" size={28} />
                   <div>
                     <h4>Scalable Growth</h4>
-                    <p>Systems that evolve with your success</p>
+                    <p>Systems that evolve with your success and scale</p>
                   </div>
                 </div>
                 <div className="contact-feature">
-                  <Users className="contact-feature-icon" size={24} />
+                  <Users className="contact-feature-icon" size={28} />
                   <div>
                     <h4>Expert Team</h4>
-                    <p>End-to-end execution excellence</p>
+                    <p>End-to-end execution excellence from start to finish</p>
                   </div>
                 </div>
               </div>
