@@ -90,32 +90,32 @@ body {
 .glow-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.35;
-  animation: orbPulse 15s infinite ease-in-out;
+  filter: blur(130px);
+  opacity: 0.4;
+  animation: orbPulse 12s infinite ease-in-out;
   mix-blend-mode: multiply;
 }
 
 .glow-orb-1 {
-  width: 850px;
-  height: 850px;
+  width: 900px;
+  height: 900px;
   background: radial-gradient(circle, #5b5eea, #7c3aed);
   top: -20%;
   right: -10%;
 }
 
 .glow-orb-2 {
-  width: 750px;
-  height: 750px;
+  width: 800px;
+  height: 800px;
   background: radial-gradient(circle, #e78fb3, #f56b8a);
   bottom: -20%;
   left: -10%;
-  animation-delay: -7s;
+  animation-delay: -6s;
 }
 
 @keyframes orbPulse {
-  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
-  50% { transform: scale(1.2) translate(30px, 30px); opacity: 0.45; }
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+  50% { transform: scale(1.15) translate(40px, 40px); opacity: 0.5; }
 }
 
 .container {
