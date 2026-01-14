@@ -140,6 +140,11 @@ const Home = () => {
 
   return (
     <div className="starton-page">
+      {/* Loading Spinner */}
+      <div className={`loading-spinner ${!isLoading ? 'hidden' : ''}`}>
+        <div className="spinner"></div>
+      </div>
+
       {/* Animated Background - Simplified */}
       <div className="animated-background">
         <div className="grid-pattern"></div>
