@@ -49,8 +49,8 @@ const Home = () => {
     const handleMouseMove = (e) => {
       if (parallaxRef.current) {
         const { clientX, clientY } = e;
-        const xPos = (clientX / window.innerWidth - 0.5) * 15;
-        const yPos = (clientY / window.innerHeight - 0.5) * 15;
+        const xPos = (clientX / window.innerWidth - 0.5) * 20;
+        const yPos = (clientY / window.innerHeight - 0.5) * 20;
         parallaxRef.current.style.transform = `translate(${xPos}px, ${yPos}px)`;
       }
     };
