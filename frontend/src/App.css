@@ -909,8 +909,8 @@ body {
 /* Scroll Animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(60px);
+  transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .animate-on-scroll.animated {
@@ -920,7 +920,8 @@ body {
 
 /* Parallax Effect */
 .parallax {
-  transition: transform 0.15s ease-out;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
 }
 
 /* Custom Scrollbar */
