@@ -5,7 +5,10 @@ import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { useToast } from '../hooks/use-toast';
-import { mockServices, mockWorkProcess, mockClients, mockSubmitConsultation } from '../mock';
+import { mockServices, mockWorkProcess, mockClients } from '../mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Home = () => {
   const { toast } = useToast();
