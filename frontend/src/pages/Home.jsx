@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle2, Users, Target, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Users, Target, TrendingUp, Sparkles, Sun, Moon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -17,6 +17,8 @@ const Home = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const parallaxRef = useRef(null);
 
   // Scroll effect for header
