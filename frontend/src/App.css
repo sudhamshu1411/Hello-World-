@@ -783,11 +783,17 @@ body {
   outline: none;
   box-shadow: 0 0 0 4px rgba(91, 94, 234, 0.15), 0 8px 24px rgba(91, 94, 234, 0.12) !important;
   background: rgba(255, 255, 255, 0.75) !important;
+  transform: translateY(-2px);
 }
 
 .form-input::placeholder {
   color: var(--text-muted);
   font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.form-input:focus::placeholder {
+  opacity: 0.5;
 }
 
 .btn-submit {
