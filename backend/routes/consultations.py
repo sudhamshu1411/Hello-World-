@@ -1,19 +1,23 @@
-from fastapi import APIRouter, HTTPException, status
-from motor.motor_asyncio import AsyncIOMotorClient
+from fastapi import APIRouter, HTTPException, status, Depends
 from models.consultation import ConsultationCreate, Consultation
 from typing import List
-import os
 import logging
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/consultations", tags=["consultations"])
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-consultations_collection = db.consultations
+# Database will be injected from server.py
+consultations_collection = None
+
+def get_db():
+    """Dependency to get database collection"""
+    return consultations_collection
+
+def set_db_collection(collection):
+    """Set the database collection from server.py"""
+    global consultations_collection
+    consultations_collection = collection
 
 
 @router.post("", response_model=dict, status_code=status.HTTP_201_CREATED)
