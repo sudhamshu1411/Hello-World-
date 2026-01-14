@@ -28,9 +28,9 @@
   
   /* Gradients - More Vibrant */
   --gradient-primary: linear-gradient(135deg, #5b5eea 0%, #7c3aed 100%);
-  --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --gradient-secondary: linear-gradient(135deg, #e78fb3 0%, #f56b8a 100%);
   --gradient-accent: linear-gradient(135deg, #0891e9 0%, #06b6d4 100%);
-  --gradient-hero: linear-gradient(135deg, #5b5eea 0%, #7c3aed 50%, #ec4899 100%);
+  --gradient-hero: linear-gradient(135deg, #5b5eea 0%, #7c3aed 50%, #e78fb3 100%);
   --gradient-light: linear-gradient(135deg, rgba(91, 94, 234, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
 }
 
