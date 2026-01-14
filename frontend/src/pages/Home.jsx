@@ -78,15 +78,15 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Generate fewer, larger particles
+  // Generate moderate-sized floating particles
   const generateParticles = () => {
     const particles = [];
-    for (let i = 0; i < 25; i++) {
-      const size = Math.random() * 6 + 4;
+    for (let i = 0; i < 30; i++) {
+      const size = Math.random() * 8 + 6; // 6-14px
       const top = Math.random() * 100;
       const left = Math.random() * 100;
-      const delay = Math.random() * 25;
-      const duration = Math.random() * 15 + 20;
+      const delay = Math.random() * 20;
+      const duration = Math.random() * 10 + 15;
       particles.push(
         <div
           key={i}
