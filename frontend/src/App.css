@@ -293,7 +293,7 @@ body {
   height: 100%;
   position: absolute;
   inset: 0;
-  opacity: 0.06;
+  opacity: 0.04;
   filter: saturate(0.8);
 }
 
