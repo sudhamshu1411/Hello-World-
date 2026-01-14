@@ -91,14 +91,14 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.25;
+  opacity: 0.35;
   animation: orbPulse 15s infinite ease-in-out;
   mix-blend-mode: multiply;
 }
 
 .glow-orb-1 {
-  width: 700px;
-  height: 700px;
+  width: 850px;
+  height: 850px;
   background: radial-gradient(circle, #5b5eea, #7c3aed);
   top: -20%;
   right: -10%;
