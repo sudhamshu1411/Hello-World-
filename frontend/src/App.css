@@ -37,22 +37,26 @@
 /* Dark Theme Variables */
 :root.dark-theme {
   /* Backgrounds - Dark Theme */
-  --bg-primary: #0a0e27;
-  --bg-secondary: #1a1f3a;
-  --bg-card: rgba(30, 41, 82, 0.4);
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: rgba(20, 20, 20, 0.6);
   
   /* Glassmorphism - Dark */
-  --glass-bg: rgba(30, 41, 82, 0.5);
+  --glass-bg: rgba(20, 20, 20, 0.6);
   --glass-border: rgba(99, 102, 241, 0.3);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
   
   /* Text - Dark Theme */
   --text-primary: #ffffff;
-  --text-secondary: #b8c1ec;
-  --text-muted: #7c8db0;
+  --text-secondary: #e0e0e0;
+  --text-muted: #a0a0a0;
   
   /* Gradients adjust for dark */
   --gradient-light: linear-gradient(135deg, rgba(91, 94, 234, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%);
+}
+
+:root.dark-theme .animated-background {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
 }
 
 /* Theme Toggle Button */
