@@ -230,12 +230,13 @@ body {
   font-weight: 800 !important;
   font-size: 0.95rem !important;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   position: relative;
   overflow: hidden;
   box-shadow: 0 12px 35px rgba(91, 94, 234, 0.35), 0 4px 12px rgba(91, 94, 234, 0.2);
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  will-change: transform;
 }
 
 .btn-primary::before {
