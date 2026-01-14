@@ -120,16 +120,33 @@ const Home = () => {
     setIsSubmitting(true);
     
     try {
-      const result = await mockSubmitConsultation(formData);
-      toast({
-        title: "Success!",
-        description: result.message,
-      });
-      setFormData({ name: '', email: '', company: '', message: '' });
+      const response = await axios.post(`${BACKEND_URL}/api/consultations`, formData);
+      
+      if (response.data.success) {
+        toast({
+          title: "Success!",
+          description: response.data.message,
+        });
+        setFormData({ name: '', email: '', company: '', message: '' });
+      }
     } catch (error) {
+      console.error('Form submission error:', error);
+      
+      let errorMessage = "Something went wrong. Please try again.";
+      
+      if (error.response?.data?.detail) {
+        if (typeof error.response.data.detail === 'string') {
+          errorMessage = error.response.data.detail;
+        } else if (error.response.data.detail.message) {
+          errorMessage = error.response.data.detail.message;
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
