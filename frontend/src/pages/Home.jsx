@@ -378,6 +378,15 @@ const Home = () => {
           </div>
         </div>
       </footer>
+
+      {/* Theme Toggle Button */}
+      <button 
+        className="theme-toggle" 
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        {isDarkTheme ? <Sun size={24} /> : <Moon size={24} />}
+      </button>
     </div>
   );
 };
