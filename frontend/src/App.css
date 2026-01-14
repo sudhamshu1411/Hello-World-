@@ -130,6 +130,102 @@ body {
   .container {
     padding: 0 24px;
   }
+  
+  .hero-section {
+    padding: 140px 0 80px;
+    min-height: 90vh;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .clients-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .btn-hero {
+    width: 100%;
+    padding: 16px 32px !important;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .service-card-content,
+  .process-card {
+    padding: 32px !important;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+  
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  .hero-title {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+  
+  .contact-wrapper {
+    gap: 70px;
+  }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 1025px) {
+  .hero-content {
+    max-width: 1100px;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-20px) scale(1.03);
+  }
+  
+  .process-card:hover {
+    transform: translateY(-20px) rotateY(5deg);
+  }
+  
+  .client-card:hover {
+    transform: translateY(-20px) scale(1.08);
+  }
 }
 
 /* Header - Enhanced */
