@@ -704,7 +704,7 @@ body {
 }
 
 .contact-feature:hover {
-  transform: translateX(16px);
+  transform: translateX(16px) scale(1.02);
   border-color: rgba(91, 94, 234, 0.35);
   box-shadow: 0 16px 40px rgba(91, 94, 234, 0.2);
   background: rgba(255, 255, 255, 0.75);
@@ -714,6 +714,11 @@ body {
   color: var(--brand-primary);
   flex-shrink: 0;
   filter: drop-shadow(0 0 10px var(--brand-glow));
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.contact-feature:hover .contact-feature-icon {
+  transform: scale(1.2) rotate(10deg);
 }
 
 .contact-feature h4 {
