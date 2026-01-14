@@ -21,6 +21,9 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
+# Set database collection for consultation routes
+consultations.set_db_collection(db.consultations)
+
 # Create the main app without a prefix
 app = FastAPI()
 
