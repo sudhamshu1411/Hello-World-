@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, CheckCircle2, Users, Target, TrendingUp, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
@@ -16,6 +16,78 @@ const Home = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const parallaxRef = useRef(null);
+
+  // Scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Parallax mouse effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (parallaxRef.current) {
+        const { clientX, clientY } = e;
+        const xPos = (clientX / window.innerWidth - 0.5) * 20;
+        const yPos = (clientY / window.innerHeight - 0.5) * 20;
+        parallaxRef.current.style.transform = `translate(${xPos}px, ${yPos}px)`;
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Generate particles
+  const generateParticles = () => {
+    const particles = [];
+    for (let i = 0; i < 50; i++) {
+      const size = Math.random() * 4 + 2;
+      const top = Math.random() * 100;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 20;
+      const duration = Math.random() * 10 + 15;
+      particles.push(
+        <div
+          key={i}
+          className="particle"
+          style={{
+            width: `${size}px`,
+            height: `${size}px`,
+            top: `${top}%`,
+            left: `${left}%`,
+            animationDelay: `${delay}s`,
+            animationDuration: `${duration}s`
+          }}
+        />
+      );
+    }
+    return particles;
+  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -52,8 +124,19 @@ const Home = () => {
 
   return (
     <div className="starton-page">
+      {/* Animated Background */}
+      <div className="animated-background">
+        <div className="grid-pattern"></div>
+        <div className="particles-container">
+          {generateParticles()}
+        </div>
+        <div className="glow-orb glow-orb-1"></div>
+        <div className="glow-orb glow-orb-2"></div>
+        <div className="glow-orb glow-orb-3"></div>
+      </div>
+
       {/* Header */}
-      <header className="starton-header">
+      <header className={`starton-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="header-content">
             <div className="logo">STARTON</div>
@@ -80,9 +163,9 @@ const Home = () => {
           <div className="hero-overlay"></div>
         </div>
         <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title">Strategy That Builds Momentum.</h1>
-            <p className="hero-subtitle">We don't just launch brands. We launch winners.</p>
+          <div className="hero-content" ref={parallaxRef}>
+            <h1 className="hero-title floating">Strategy That Builds Momentum.</h1>
+            <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality.</p>
             <Button onClick={scrollToContact} className="btn-primary btn-hero">
               Start Your Journey <ArrowRight className="ml-2" size={20} />
             </Button>
@@ -93,13 +176,13 @@ const Home = () => {
       {/* Services Section */}
       <section id="services" className="services-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header animate-on-scroll">
             <h2 className="section-title">What We Do</h2>
-            <p className="section-subtitle">Full-spectrum solutions that drive growth</p>
+            <p className="section-subtitle">Full-spectrum solutions that drive exponential growth</p>
           </div>
           <div className="services-grid">
-            {mockServices.map((service) => (
-              <Card key={service.id} className="service-card">
+            {mockServices.map((service, index) => (
+              <Card key={service.id} className="service-card animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="service-card-content">
                   <h3 className="service-title">{service.title}</h3>
                   <p className="service-description">{service.description}</p>
@@ -121,13 +204,13 @@ const Home = () => {
       {/* How We Work Section */}
       <section id="process" className="process-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header animate-on-scroll">
             <h2 className="section-title">How We Work</h2>
-            <p className="section-subtitle">Our proven approach to success</p>
+            <p className="section-subtitle">Our proven approach to transformative success</p>
           </div>
           <div className="process-grid">
             {mockWorkProcess.map((step, index) => (
-              <div key={step.id} className="process-card">
+              <div key={step.id} className="process-card animate-on-scroll" style={{ animationDelay: `${index * 0.15}s` }}>
                 <div className="process-number">{String(index + 1).padStart(2, '0')}</div>
                 <h3 className="process-title">{step.title}</h3>
                 <p className="process-description">{step.description}</p>
@@ -140,12 +223,13 @@ const Home = () => {
       {/* Who We Work With Section */}
       <section className="clients-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header animate-on-scroll">
             <h2 className="section-title">Who We Work With</h2>
+            <p className="section-subtitle">Partnering with ambitious businesses across industries</p>
           </div>
           <div className="clients-grid">
             {mockClients.map((client, idx) => (
-              <div key={idx} className="client-card">
+              <div key={idx} className="client-card animate-on-scroll" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <Target className="client-icon" size={32} />
                 <h3 className="client-name">{client}</h3>
               </div>
@@ -158,36 +242,36 @@ const Home = () => {
       <section id="contact" className="contact-section">
         <div className="container">
           <div className="contact-wrapper">
-            <div className="contact-info">
+            <div className="contact-info animate-on-scroll">
               <h2 className="contact-title">Ready to Start?</h2>
               <p className="contact-subtitle">
-                Let's discuss how we can help you build momentum and achieve your goals.
+                Let's discuss how we can help you build unstoppable momentum and achieve breakthrough results.
               </p>
               <div className="contact-features">
                 <div className="contact-feature">
                   <Sparkles className="contact-feature-icon" size={24} />
                   <div>
                     <h4>Strategic Approach</h4>
-                    <p>Data-driven decisions</p>
+                    <p>Data-driven decisions that deliver</p>
                   </div>
                 </div>
                 <div className="contact-feature">
                   <TrendingUp className="contact-feature-icon" size={24} />
                   <div>
                     <h4>Scalable Growth</h4>
-                    <p>Systems that evolve</p>
+                    <p>Systems that evolve with your success</p>
                   </div>
                 </div>
                 <div className="contact-feature">
                   <Users className="contact-feature-icon" size={24} />
                   <div>
                     <h4>Expert Team</h4>
-                    <p>End-to-end execution</p>
+                    <p>End-to-end execution excellence</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="contact-form-wrapper">
+            <div className="contact-form-wrapper animate-on-scroll">
               <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">Name</label>
@@ -198,6 +282,7 @@ const Home = () => {
                     onChange={handleInputChange}
                     required
                     className="form-input"
+                    placeholder="Your name"
                   />
                 </div>
                 <div className="form-group">
@@ -210,6 +295,7 @@ const Home = () => {
                     onChange={handleInputChange}
                     required
                     className="form-input"
+                    placeholder="your@email.com"
                   />
                 </div>
                 <div className="form-group">
@@ -220,6 +306,7 @@ const Home = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     className="form-input"
+                    placeholder="Your company"
                   />
                 </div>
                 <div className="form-group">
@@ -232,6 +319,7 @@ const Home = () => {
                     required
                     rows={4}
                     className="form-input"
+                    placeholder="Tell us about your project..."
                   />
                 </div>
                 <Button type="submit" disabled={isSubmitting} className="btn-primary btn-submit">
