@@ -647,13 +647,14 @@ body {
   background: var(--gradient-light);
   border-top: 2px solid var(--glass-border);
   border-bottom: 2px solid var(--glass-border);
+  padding: 100px 0;
 }
 
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 100px;
-  align-items: start;
+  align-items: center;
 }
 
 @media (max-width: 991px) {
