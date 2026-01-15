@@ -201,7 +201,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-background">
           <img 
-            src="https://customer-assets.emergentagent.com/job_scale-smart-1/artifacts/5vqsr75o_pexels-lii-chun-2154978145-35204301.jpg" 
+            src="https://customer-assets.emergentagent.com/job_scale-smart-1/artifacts/677upf7b_pexels-julian-v-293152-860227.jpg" 
             alt="Creative team collaboration"
             className="hero-image"
           />
