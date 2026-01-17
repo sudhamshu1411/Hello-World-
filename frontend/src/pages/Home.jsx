@@ -101,8 +101,8 @@ const Home = () => {
             left: `${left}%`,
             animationDelay: `${delay}s`,
             animationDuration: `${duration}s`
-          }}
-        />
+          }} />
+
       );
     }
     return particles;
@@ -118,22 +118,22 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await axios.post(`${BACKEND_URL}/api/consultations`, formData);
-      
+
       if (response.data.success) {
         toast({
           title: "Success!",
-          description: response.data.message,
+          description: response.data.message
         });
         setFormData({ name: '', email: '', company: '', message: '' });
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      
+
       let errorMessage = "Something went wrong. Please try again.";
-      
+
       if (error.response?.data?.detail) {
         if (typeof error.response.data.detail === 'string') {
           errorMessage = error.response.data.detail;
@@ -143,7 +143,7 @@ const Home = () => {
       } else if (error.message) {
         errorMessage = error.message;
       }
-      
+
       toast({
         title: "Error",
         description: errorMessage,
@@ -200,17 +200,17 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">
-          <img 
-            src="https://customer-assets.emergentagent.com/job_scale-smart-1/artifacts/677upf7b_pexels-julian-v-293152-860227.jpg" 
+          <img
+            src="https://customer-assets.emergentagent.com/job_scale-smart-1/artifacts/677upf7b_pexels-julian-v-293152-860227.jpg"
             alt="Creative team collaboration"
-            className="hero-image"
-          />
+            className="hero-image" />
+
           <div className="hero-overlay"></div>
         </div>
         <div className="container">
           <div className="hero-content" ref={parallaxRef}>
             <h1 className="hero-title floating">Strategy That Builds Momentum.</h1>
-            <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
+            <p className="hero-subtitle !shadow-2xl">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
             <Button onClick={scrollToContact} className="btn-primary btn-hero">
               Start Your Journey <ArrowRight className="ml-2" size={20} />
             </Button>
@@ -226,22 +226,22 @@ const Home = () => {
             <p className="section-subtitle">Full-spectrum solutions that drive exponential growth</p>
           </div>
           <div className="services-grid">
-            {mockServices.map((service, index) => (
-              <Card key={service.id} className="service-card animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
+            {mockServices.map((service, index) =>
+            <Card key={service.id} className="service-card animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="service-card-content">
                   <h3 className="service-title">{service.title}</h3>
                   <p className="service-description">{service.description}</p>
                   <ul className="service-features">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="service-feature">
+                    {service.features.map((feature, idx) =>
+                  <li key={idx} className="service-feature">
                         <CheckCircle2 size={18} className="feature-icon" />
                         <span>{feature}</span>
                       </li>
-                    ))}
+                  )}
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -254,13 +254,13 @@ const Home = () => {
             <p className="section-subtitle">Our proven approach to transformative success</p>
           </div>
           <div className="process-grid">
-            {mockWorkProcess.map((step, index) => (
-              <div key={step.id} className="process-card animate-on-scroll" style={{ animationDelay: `${index * 0.15}s` }}>
+            {mockWorkProcess.map((step, index) =>
+            <div key={step.id} className="process-card animate-on-scroll" style={{ animationDelay: `${index * 0.15}s` }}>
                 <div className="process-number">{String(index + 1).padStart(2, '0')}</div>
                 <h3 className="process-title">{step.title}</h3>
                 <p className="process-description">{step.description}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -273,12 +273,12 @@ const Home = () => {
             <p className="section-subtitle">Partnering with ambitious businesses across industries</p>
           </div>
           <div className="clients-grid">
-            {mockClients.map((client, idx) => (
-              <div key={idx} className="client-card animate-on-scroll" style={{ animationDelay: `${idx * 0.1}s` }}>
+            {mockClients.map((client, idx) =>
+            <div key={idx} className="client-card animate-on-scroll" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <Target className="client-icon" size={36} />
                 <h3 className="client-name">{client}</h3>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -327,8 +327,8 @@ const Home = () => {
                     onChange={handleInputChange}
                     required
                     className="form-input"
-                    placeholder="Your name"
-                  />
+                    placeholder="Your name" />
+
                 </div>
                 <div className="form-group">
                   <label htmlFor="email" className="form-label">Email</label>
@@ -340,8 +340,8 @@ const Home = () => {
                     onChange={handleInputChange}
                     required
                     className="form-input"
-                    placeholder="your@email.com"
-                  />
+                    placeholder="your@email.com" />
+
                 </div>
                 <div className="form-group">
                   <label htmlFor="company" className="form-label">Company</label>
@@ -351,8 +351,8 @@ const Home = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     className="form-input"
-                    placeholder="Your company"
-                  />
+                    placeholder="Your company" />
+
                 </div>
                 <div className="form-group">
                   <label htmlFor="message" className="form-label">Message</label>
@@ -364,8 +364,8 @@ const Home = () => {
                     required
                     rows={4}
                     className="form-input"
-                    placeholder="Tell us about your project..."
-                  />
+                    placeholder="Tell us about your project..." />
+
                 </div>
                 <Button type="submit" disabled={isSubmitting} className="btn-primary btn-submit">
                   {isSubmitting ? 'Sending...' : 'Book Consultation'}
@@ -405,15 +405,15 @@ const Home = () => {
       </footer>
 
       {/* Theme Toggle Button */}
-      <button 
-        className="theme-toggle" 
+      <button
+        className="theme-toggle"
         onClick={toggleTheme}
-        aria-label="Toggle theme"
-      >
+        aria-label="Toggle theme">
+
         {isDarkTheme ? <Sun size={24} /> : <Moon size={24} />}
       </button>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Home;
