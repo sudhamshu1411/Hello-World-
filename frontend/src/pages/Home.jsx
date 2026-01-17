@@ -210,7 +210,7 @@ const Home = () => {
         <div className="container">
           <div className="hero-content" ref={parallaxRef}>
             <h1 className="hero-title floating">Strategy That Builds Momentum.</h1>
-            <p className="hero-subtitle !shadow-2xl">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
+            <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
             <Button onClick={scrollToContact} className="btn-primary btn-hero">
               Start Your Journey <ArrowRight className="ml-2" size={20} />
             </Button>
