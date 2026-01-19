@@ -376,30 +376,72 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="starton-footer">
+      {/* CTA Section Above Footer */}
+      <section className="pre-footer-cta">
         <div className="container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <div className="footer-logo">STARTON</div>
-              <p className="footer-tagline">Strategy That Builds Momentum.</p>
+          <div className="cta-content">
+            <h2 className="cta-heading">Have a serious project in mind? Let's talk.</h2>
+            <Button onClick={scrollToContact} className="btn-primary btn-cta">
+              Start a Project <ArrowRight className="ml-2" size={20} />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Footer */}
+      <footer className="premium-footer">
+        <div className="container">
+          {/* Brand Anchor */}
+          <div className="footer-brand-section">
+            <div className="footer-logo-large">STARTON</div>
+            <p className="footer-tagline-large">Strategy That Builds Momentum.</p>
+          </div>
+
+          {/* Footer Navigation Grid */}
+          <div className="footer-nav-grid">
+            {/* Column 1 - Work */}
+            <div className="footer-column">
+              <h4 className="footer-column-title">Work</h4>
+              <a href="#contact" className="footer-link">Start a Project</a>
+              <a href="#" className="footer-link">Case Studies</a>
             </div>
-            <div className="footer-links">
-              <div className="footer-column">
-                <h4 className="footer-heading">Services</h4>
-                <a href="#services" className="footer-link">Brand & Identity</a>
-                <a href="#services" className="footer-link">Web & Digital</a>
-                <a href="#services" className="footer-link">Strategy</a>
-              </div>
-              <div className="footer-column">
-                <h4 className="footer-heading">Company</h4>
-                <a href="#process" className="footer-link">How We Work</a>
-                <a href="#contact" className="footer-link">Contact</a>
-              </div>
+
+            {/* Column 2 - Services */}
+            <div className="footer-column">
+              <h4 className="footer-column-title">Services</h4>
+              <a href="#services" className="footer-link">Brand Identity</a>
+              <a href="#services" className="footer-link">Web & UX</a>
+              <a href="#services" className="footer-link">Business Strategy</a>
+              <a href="#services" className="footer-link">Marketing Systems</a>
+              <a href="#services" className="footer-link">Sales Enablement</a>
+            </div>
+
+            {/* Column 3 - Company */}
+            <div className="footer-column">
+              <h4 className="footer-column-title">Company</h4>
+              <a href="#" className="footer-link">About</a>
+              <a href="#process" className="footer-link">Approach</a>
+              <a href="#" className="footer-link">Insights</a>
+              <a href="#" className="footer-link">Careers</a>
+            </div>
+
+            {/* Column 4 - Connect */}
+            <div className="footer-column">
+              <h4 className="footer-column-title">Connect</h4>
+              <a href="mailto:hello@starton.agency" className="footer-link">Email</a>
+              <a href="#" className="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="#" className="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="#" className="footer-link" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
           </div>
-          <div className="footer-bottom">
-            <p>&copy; 2025 STARTON. All rights reserved.</p>
+
+          {/* Footer Divider */}
+          <div className="footer-divider"></div>
+
+          {/* Footer Close */}
+          <div className="footer-close">
+            <p className="footer-copyright">&copy; 2025 STARTON.</p>
+            <p className="footer-statement">Not Just an Agency. A Growth Partner.</p>
           </div>
         </div>
       </footer>
