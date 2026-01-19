@@ -1072,50 +1072,87 @@ body {
   margin-top: 20px;
 }
 
-/* Footer */
-.starton-footer {
+/* Pre-Footer CTA Section */
+.pre-footer-cta {
   background: var(--bg-primary);
-  border-top: 2px solid var(--glass-border);
-  padding: 100px 0 50px;
+  padding: 100px 0;
   position: relative;
+  border-top: 1px solid var(--glass-border);
 }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 100px;
-  margin-bottom: 70px;
+.cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@media (max-width: 767px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-}
-
-.footer-logo {
+.cta-heading {
   font-weight: 900;
-  font-size: 2.25rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.btn-cta {
+  font-size: 1.1rem !important;
+  padding: 18px 40px !important;
+}
+
+/* Premium Footer */
+.premium-footer {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 80px 0 40px;
+  position: relative;
+}
+
+:root.dark-theme .premium-footer {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+.footer-brand-section {
+  margin-bottom: 80px;
+}
+
+.footer-logo-large {
+  font-weight: 900;
+  font-size: 3rem;
   margin-bottom: 16px;
-  text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
-.footer-tagline {
-  color: var(--text-secondary);
-  font-size: 1.2rem;
-  font-weight: 700;
+.footer-tagline-large {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.7;
 }
 
-.footer-links {
+/* Footer Navigation Grid */
+.footer-nav-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 991px) {
+  .footer-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .footer-column {
@@ -1124,57 +1161,97 @@ body {
   gap: 16px;
 }
 
-.footer-heading {
-  font-weight: 900;
-  font-size: 0.95rem;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 12px;
+.footer-column-title {
+  font-weight: 700;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  opacity: 0.5;
 }
 
 .footer-link {
-  color: var(--text-secondary);
+  color: inherit;
   text-decoration: none;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
   position: relative;
-  padding-left: 0;
-  font-weight: 700;
+  display: inline-block;
+  width: fit-content;
 }
 
-.footer-link::before {
+.footer-link::after {
   content: '';
   position: absolute;
-  left: -24px;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: -2px;
+  left: 0;
   width: 0;
-  height: 3px;
-  background: var(--gradient-primary);
+  height: 1px;
+  background: currentColor;
   transition: width 0.3s ease;
-  border-radius: 2px;
 }
 
 .footer-link:hover {
-  color: var(--brand-primary);
-  padding-left: 28px;
+  opacity: 1;
 }
 
-.footer-link:hover::before {
-  width: 18px;
+.footer-link:hover::after {
+  width: 100%;
 }
 
-.footer-bottom {
-  text-align: center;
-  padding-top: 50px;
-  border-top: 2px solid var(--glass-border);
-  color: var(--text-muted);
+/* Footer Divider */
+.footer-divider {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+  margin-bottom: 40px;
+}
+
+/* Footer Close */
+.footer-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 0.95rem;
-  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .footer-close {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+.footer-copyright {
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.footer-statement {
+  font-weight: 600;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Dark Theme Adjustments for Footer */
+:root.dark-theme .premium-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:root.dark-theme .footer-logo-large,
+:root.dark-theme .footer-tagline-large,
+:root.dark-theme .footer-link,
+:root.dark-theme .footer-copyright,
+:root.dark-theme .footer-statement {
+  color: #ffffff;
+}
+
+/* Old Footer Styles - Remove */
+.starton-footer {
+  display: none;
 }
 
 /* Scroll Animations */
