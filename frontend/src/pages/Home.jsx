@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle2, Users, Target, TrendingUp, Sparkles, Sun, Moon } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Users, Target, TrendingUp, Sparkles, Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
