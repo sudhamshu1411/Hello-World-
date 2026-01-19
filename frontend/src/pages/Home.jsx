@@ -22,6 +22,9 @@ const Home = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [companyDropdownOpen, setCompanyDropdownOpen] = useState(false);
   const parallaxRef = useRef(null);
 
   // Scroll effect for header
@@ -382,7 +385,7 @@ const Home = () => {
           <div className="cta-content">
             <h2 className="cta-heading">Have a serious project in mind? Let's talk.</h2>
             <Button onClick={scrollToContact} className="btn-primary btn-cta">
-              Start a Project <ArrowRight className="ml-2" size={20} />
+            Start a Project<ArrowRight className="ml-2" size={20} />
             </Button>
           </div>
         </div>
