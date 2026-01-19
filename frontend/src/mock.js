@@ -87,7 +87,7 @@ export const mockWorkProcess = [
   },
   {
     id: 3,
-    title: "Built to Scale",
+    title: "Built with Systems",
     description: "Systems that grow with you"
   },
   {

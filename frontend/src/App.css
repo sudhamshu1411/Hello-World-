@@ -213,12 +213,12 @@ body {
 
 .grid-pattern {
   position: absolute;
-  width: 110%;
+  width: 210%;
   height: 100%;
   background-image: 
     linear-gradient(rgba(91, 94, 234, 0.08) 1.5px, transparent 1.5px),
     linear-gradient(90deg, rgba(91, 94, 234, 0.08) 1.5px, transparent 1.5px);
-  background-size: 73px 73px;
+  background-size: 75px 75px;
   animation: gridMove 30s linear infinite;
 }
 
