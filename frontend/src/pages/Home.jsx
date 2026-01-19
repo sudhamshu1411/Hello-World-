@@ -192,19 +192,88 @@ const Home = () => {
         <div className="glow-orb glow-orb-2"></div>
       </div>
 
-      {/* Header */}
-      <header className={`starton-header ${scrolled ? 'scrolled' : ''}`}>
+      {/* Premium Header */}
+      <header className={`premium-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="header-content">
-            <div className="logo">STARTON</div>
-            <nav className="nav-links">
-              <a href="#services" className="nav-link">Services</a>
-              <a href="#process" className="nav-link">Process</a>
-              <a href="#contact" className="nav-link">Contact</a>
+            {/* Logo */}
+            <div className="header-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              STARTON
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="header-nav">
+              <a href="#" className="nav-item">Work</a>
+              
+              {/* Services Dropdown */}
+              <div 
+                className="nav-item-dropdown"
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                onMouseLeave={() => setServicesDropdownOpen(false)}
+              >
+                <button className="nav-item">
+                  Services <ChevronDown size={16} className="chevron" />
+                </button>
+                {servicesDropdownOpen && (
+                  <div className="dropdown-menu">
+                    <a href="#services" className="dropdown-item">Brand Identity</a>
+                    <a href="#services" className="dropdown-item">Web & UX</a>
+                    <a href="#services" className="dropdown-item">Business Strategy</a>
+                    <a href="#services" className="dropdown-item">Marketing Systems</a>
+                    <a href="#services" className="dropdown-item">Sales Enablement</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Company Dropdown */}
+              <div 
+                className="nav-item-dropdown"
+                onMouseEnter={() => setCompanyDropdownOpen(true)}
+                onMouseLeave={() => setCompanyDropdownOpen(false)}
+              >
+                <button className="nav-item">
+                  Company <ChevronDown size={16} className="chevron" />
+                </button>
+                {companyDropdownOpen && (
+                  <div className="dropdown-menu">
+                    <a href="#process" className="dropdown-item">Approach</a>
+                    <a href="#" className="dropdown-item">Careers</a>
+                    <a href="#" className="dropdown-item">Insights</a>
+                  </div>
+                )}
+              </div>
+
+              <a href="#" className="nav-item">About</a>
             </nav>
-            <Button onClick={scrollToContact} className="btn-primary">
-              Book Consultation
+
+            {/* CTA Button */}
+            <Button onClick={scrollToContact} className="btn-header-cta">
+              Start a Project
             </Button>
+
+            {/* Mobile Menu Toggle */}
+            <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-menu-content">
+            <a href="#" className="mobile-nav-item" onClick={closeMobileMenu}>Work</a>
+            <a href="#services" className="mobile-nav-item" onClick={closeMobileMenu}>Services</a>
+            <a href="#process" className="mobile-nav-item" onClick={closeMobileMenu}>Company</a>
+            <a href="#" className="mobile-nav-item" onClick={closeMobileMenu}>About</a>
+            
+            <Button onClick={scrollToContact} className="btn-primary btn-mobile-cta">
+              Start a Project
+            </Button>
+
+            <div className="mobile-menu-footer">
+              <p>&copy; STARTON</p>
+              <p className="mobile-tagline">Strategy That Builds Momentum.</p>
+            </div>
           </div>
         </div>
       </header>
