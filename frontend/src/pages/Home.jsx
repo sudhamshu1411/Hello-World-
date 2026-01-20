@@ -172,6 +172,32 @@ const Home = () => {
     setMobileMenuOpen(false);
   };
 
+  const handleServicesMouseEnter = () => {
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    servicesTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 300);
+  };
+
+  const handleCompanyMouseEnter = () => {
+    if (companyTimeoutRef.current) {
+      clearTimeout(companyTimeoutRef.current);
+    }
+    setCompanyDropdownOpen(true);
+  };
+
+  const handleCompanyMouseLeave = () => {
+    companyTimeoutRef.current = setTimeout(() => {
+      setCompanyDropdownOpen(false);
+    }, 300);
+  };
+
   return (
     <div className="starton-page">
       {/* Loading Spinner */}
