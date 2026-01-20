@@ -26,6 +26,8 @@ const Home = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [companyDropdownOpen, setCompanyDropdownOpen] = useState(false);
   const parallaxRef = useRef(null);
+  const servicesTimeoutRef = useRef(null);
+  const companyTimeoutRef = useRef(null);
 
   // Scroll effect for header
   useEffect(() => {
