@@ -236,19 +236,45 @@ const Home = () => {
               {/* Services Dropdown */}
               <div 
                 className="nav-item-dropdown"
-                onMouseEnter={() => setServicesDropdownOpen(true)}
-                onMouseLeave={() => setServicesDropdownOpen(false)}
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
               >
                 <button className="nav-item">
                   Services <ChevronDown size={16} className="chevron" />
                 </button>
                 {servicesDropdownOpen && (
                   <div className="dropdown-menu">
-                    <a href="#services" className="dropdown-item">Brand Identity</a>
-                    <a href="#services" className="dropdown-item">Web & UX</a>
-                    <a href="#services" className="dropdown-item">Business Strategy</a>
-                    <a href="#services" className="dropdown-item">Marketing Systems</a>
-                    <a href="#services" className="dropdown-item">Sales Enablement</a>
+                    <div className="dropdown-header">Our Services</div>
+                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Brand Identity</span>
+                        <span className="dropdown-item-desc">Logo, visual systems & voice</span>
+                      </div>
+                    </a>
+                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Web & UX</span>
+                        <span className="dropdown-item-desc">High-performance digital products</span>
+                      </div>
+                    </a>
+                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Business Strategy</span>
+                        <span className="dropdown-item-desc">Market positioning & planning</span>
+                      </div>
+                    </a>
+                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Marketing Systems</span>
+                        <span className="dropdown-item-desc">Content, SEO & campaigns</span>
+                      </div>
+                    </a>
+                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Sales Enablement</span>
+                        <span className="dropdown-item-desc">Funnels, CRM & automation</span>
+                      </div>
+                    </a>
                   </div>
                 )}
               </div>
@@ -256,17 +282,33 @@ const Home = () => {
               {/* Company Dropdown */}
               <div 
                 className="nav-item-dropdown"
-                onMouseEnter={() => setCompanyDropdownOpen(true)}
-                onMouseLeave={() => setCompanyDropdownOpen(false)}
+                onMouseEnter={handleCompanyMouseEnter}
+                onMouseLeave={handleCompanyMouseLeave}
               >
                 <button className="nav-item">
                   Company <ChevronDown size={16} className="chevron" />
                 </button>
                 {companyDropdownOpen && (
                   <div className="dropdown-menu">
-                    <a href="#process" className="dropdown-item">Approach</a>
-                    <a href="#" className="dropdown-item">Careers</a>
-                    <a href="#" className="dropdown-item">Insights</a>
+                    <div className="dropdown-header">About Us</div>
+                    <a href="#process" className="dropdown-item" onClick={() => setCompanyDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Approach</span>
+                        <span className="dropdown-item-desc">How we work with clients</span>
+                      </div>
+                    </a>
+                    <a href="#" className="dropdown-item" onClick={() => setCompanyDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Careers</span>
+                        <span className="dropdown-item-desc">Join our team</span>
+                      </div>
+                    </a>
+                    <a href="#" className="dropdown-item" onClick={() => setCompanyDropdownOpen(false)}>
+                      <div className="dropdown-item-content">
+                        <span className="dropdown-item-title">Insights</span>
+                        <span className="dropdown-item-desc">Our latest thinking</span>
+                      </div>
+                    </a>
                   </div>
                 )}
               </div>
