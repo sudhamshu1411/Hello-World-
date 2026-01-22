@@ -531,9 +531,9 @@ const Home = () => {
       <section className="pre-footer-cta">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-heading">Have a serious project in mind? Let's talk.</h2>
+            <h2 className="cta-heading">Have a serious project in mind? Let's talk</h2>
             <Button onClick={scrollToContact} className="btn-primary btn-cta">
-            Start a Project<ArrowRight className="ml-2" size={20} />
+            Start a Project   <ArrowRight className="ml-0" size={20} />
             </Button>
           </div>
         </div>
