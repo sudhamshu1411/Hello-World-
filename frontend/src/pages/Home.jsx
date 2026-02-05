@@ -231,7 +231,7 @@ const Home = () => {
 
             {/* Desktop Navigation */}
             <nav className="header-nav">
-              <a href="#" className="nav-item">Work</a>
+              <a href="digitalProducts.html" className="nav-item">Digitl Products</a>
               
               {/* Services Dropdown */}
               <div 
@@ -239,37 +239,38 @@ const Home = () => {
                 onMouseEnter={handleServicesMouseEnter}
                 onMouseLeave={handleServicesMouseLeave}
               >
+                <a href="services.html">
                 <button className="nav-item">
                   Services <ChevronDown size={16} className="chevron" />
-                </button>
+                </button></a>
                 {servicesDropdownOpen && (
                   <div className="dropdown-menu">
                     <div className="dropdown-header">Our Services</div>
-                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                    <a href="brandIdentity.html" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
                       <div className="dropdown-item-content">
                         <span className="dropdown-item-title">Brand Identity</span>
                         <span className="dropdown-item-desc">Logo, visual systems & voice</span>
                       </div>
                     </a>
-                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                    <a href="web&UX.html" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
                       <div className="dropdown-item-content">
                         <span className="dropdown-item-title">Web & UX</span>
                         <span className="dropdown-item-desc">High-performance digital products</span>
                       </div>
                     </a>
-                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                    <a href="BusinessStrategy.html" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
                       <div className="dropdown-item-content">
                         <span className="dropdown-item-title">Business Strategy</span>
                         <span className="dropdown-item-desc">Market positioning & planning</span>
                       </div>
                     </a>
-                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                    <a href="marketingSystem.html" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
                       <div className="dropdown-item-content">
                         <span className="dropdown-item-title">Marketing Systems</span>
                         <span className="dropdown-item-desc">Content, SEO & campaigns</span>
                       </div>
                     </a>
-                    <a href="#services" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
+                    <a href="salesEnablement" className="dropdown-item" onClick={() => setServicesDropdownOpen(false)}>
                       <div className="dropdown-item-content">
                         <span className="dropdown-item-title">Sales Enablement</span>
                         <span className="dropdown-item-desc">Funnels, CRM & automation</span>
@@ -285,9 +286,10 @@ const Home = () => {
                 onMouseEnter={handleCompanyMouseEnter}
                 onMouseLeave={handleCompanyMouseLeave}
               >
+                <a href="company.html">
                 <button className="nav-item">
                   Company <ChevronDown size={16} className="chevron" />
-                </button>
+                </button></a>
                 {companyDropdownOpen && (
                   <div className="dropdown-menu">
                     <div className="dropdown-header">About Us</div>
@@ -313,13 +315,14 @@ const Home = () => {
                 )}
               </div>
 
-              <a href="#" className="nav-item">About</a>
+              <a href="about.html" className="nav-item">About</a>
             </nav>
 
             {/* CTA Button */}
-            <Button onClick={scrollToContact} className="btn-header-cta">
+            <a href="cta.html">    
+            <Button className="btn-header-cta">
               Start a Project
-            </Button>
+            </Button></a>
 
             {/* Mobile Menu Toggle */}
             <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
@@ -362,9 +365,10 @@ const Home = () => {
           <div className="hero-content" ref={parallaxRef}>
             <h1 className="hero-title floating">Strategy That Builds Momentum.</h1>
             <p className="hero-subtitle">We don't just launch brands. We launch winners. Transform your vision into market-dominating reality with data-driven strategy and creative excellence.</p>
-            <Button onClick={scrollToContact} className="btn-primary btn-hero">
+            <a href="cta.html"> 
+            <Button className="btn-primary btn-hero">
               Start Your Journey <ArrowRight className="ml-2" size={20} />
-            </Button>
+            </Button> </a>
           </div>
         </div>
       </section>
