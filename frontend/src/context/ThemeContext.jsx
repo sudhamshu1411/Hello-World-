@@ -1,14 +1,21 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    const saved = localStorage.getItem('starton-theme');
+    return saved === 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark-theme', isDarkTheme);
+  }, [isDarkTheme]);
 
   const toggleTheme = () => {
     setIsDarkTheme(prev => {
       const next = !prev;
-      document.documentElement.classList.toggle('dark-theme', next);
+      localStorage.setItem('starton-theme', next ? 'dark' : 'light');
       return next;
     });
   };
