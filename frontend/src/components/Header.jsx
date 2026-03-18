@@ -45,7 +45,7 @@ const Header = () => {
 
   const serviceItems = [
     { title: 'Brand Identity', desc: 'Logo, visual systems & voice' },
-    { title: 'Web & UX', desc: 'High-performance digital products' },
+    { title: 'Web & UX', desc: 'High-performance work' },
     { title: 'Business Strategy', desc: 'Market positioning & planning' },
     { title: 'Marketing Systems', desc: 'Content, SEO & campaigns' },
     { title: 'Sales Enablement', desc: 'Funnels, CRM & automation' },
