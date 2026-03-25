@@ -9,6 +9,7 @@ import Company from './pages/Company';
 import About from './pages/About';
 import { Toaster } from './components/ui/sonner';
 
+
 function App() {
   return (
     <ThemeProvider>

@@ -75,7 +75,7 @@ const Company = () => {
       </section>
 
       {/* Approach */}
-      <section id="approach" className="process-section" style={{ paddingTop: '80px' }}>
+      <section id="approach" className="process-section" style={{ paddingTop: '55px' }}>
         <div className="container">
           <div className="section-header animate-on-scroll">
             <h2 className="section-title">Our Approach</h2>

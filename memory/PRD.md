@@ -15,7 +15,7 @@ Build a highly-polished, animated landing page and multi-page website for "START
 - Premium footer with pre-footer CTA
 - Fully responsive (mobile, tablet, desktop)
 - Functional contact/consultation form
-- Multi-page routing: Home, Work, Services, Company, About
+- Multi-page routing: Home, Work, Services, Company, Careers
 
 ---
 
@@ -25,32 +25,32 @@ Build a highly-polished, animated landing page and multi-page website for "START
 /app
 ├── backend/
 │   ├── models/
-│   │   └── consultation.py     # Pydantic model for consultation data
+│   │   └── consultation.py
 │   ├── routes/
-│   │   └── consultations.py    # FastAPI router for /consultations
+│   │   └── consultations.py
 │   ├── .env
 │   ├── requirements.txt
-│   └── server.py               # Main FastAPI app
-├── contracts.md                # API contract
+│   └── server.py
+├── contracts.md
 └── frontend/
     ├── src/
     │   ├── components/
-    │   │   ├── ui/             # Shadcn UI components
-    │   │   ├── Header.jsx      # Reusable header with React Router Links
-    │   │   ├── Footer.jsx      # Reusable footer with pre-footer CTA
-    │   │   └── PageLayout.jsx  # Shared layout: animated bg + header + footer + theme toggle
+    │   │   ├── ui/
+    │   │   ├── Header.jsx
+    │   │   ├── Footer.jsx
+    │   │   └── PageLayout.jsx
     │   ├── context/
-    │   │   └── ThemeContext.jsx # Global theme state (persisted to localStorage)
+    │   │   └── ThemeContext.jsx
     │   ├── pages/
-    │   │   ├── Home.jsx        # Landing page with contact form
-    │   │   ├── Work.jsx        # Portfolio page with filter
-    │   │   ├── Services.jsx    # Service offerings page
-    │   │   ├── Company.jsx     # Approach, values, team, careers
-    │   │   └── About.jsx       # Mission, beliefs, timeline
-    │   ├── App.css             # All styles, themes, animations, new page CSS
-    │   ├── App.js              # Router setup with ThemeProvider
-    │   ├── index.css           # TailwindCSS base
-    │   └── mock.js             # Static mock data (services, process, clients)
+    │   │   ├── Home.jsx
+    │   │   ├── Work.jsx
+    │   │   ├── Services.jsx
+    │   │   ├── Company.jsx
+    │   │   └── About.jsx (to be replaced with Careers.jsx)
+    │   ├── App.css
+    │   ├── App.js
+    │   ├── index.css
+    │   └── mock.js
     ├── .env
     └── package.json
 ```
@@ -68,7 +68,7 @@ Build a highly-polished, animated landing page and multi-page website for "START
 
 ### Phase 1 - Landing Page (Session 1)
 - Full landing page with glassmorphism design
-- Light/dark theme toggle (now persisted to localStorage)
+- Light/dark theme toggle (persisted to localStorage)
 - Premium sticky header with dropdown menus (Services, Company)
 - Premium footer with pre-footer CTA and hover animations
 - Animated background (grid, particles, glow orbs)
@@ -80,13 +80,19 @@ Build a highly-polished, animated landing page and multi-page website for "START
 - Extracted Header, Footer, PageLayout into reusable components
 - Created ThemeContext for global theme state
 - Added React Router routes for /work, /services, /company, /about
-- Built Work page: hero, stats bar (42+/96%/$50M+/3x), filter tabs, 6 project cards
+- Built Work page: hero, stats bar, filter tabs, 6 project cards
 - Built Services page: service cards, Why STARTON, process sections
 - Built Company page: approach steps, values grid, team cards, careers CTA
 - Built About page: mission statement, beliefs grid, timeline, CTA
 - Updated all nav links to use React Router Link
 - Theme persists across page navigation and refreshes
 - 100% test pass rate (22/22 frontend tests)
+
+### Phase 3 - Bug Fixes (Session 3)
+- Fixed mobile menu toggle not working (menu panel had 0px height)
+  - Root cause: Header's `backdrop-filter` created new containing block for fixed-position children
+  - Fix: Moved `.mobile-menu` div outside `<header>` element in Header.jsx
+  - Bumped mobile menu z-index to 101 (above header's 100)
 
 ---
 
@@ -96,28 +102,29 @@ Build a highly-polished, animated landing page and multi-page website for "START
 
 ## Database Schema
 - **consultations**: `{id, name, email, company, message, submitted_at}`
-- **status_checks**: `{id, client_name, timestamp}` (template)
 
 ---
 
 ## Prioritized Backlog
 
-### P0 (Must have - next session)
-- None blocking
+### P0 (Must have - next)
+- Enhance Work, Services, Company pages with detailed content per user brief
+- Create Careers page (Careers.jsx) with culture, why work here, open roles
+- Remove About page, add /careers route
+- Update Header/Footer navigation links
 
 ### P1 (High value)
 - "Start a Project" dedicated flow: multi-step form/modal with project details
 - Add real case study detail pages (/work/nexus-finance etc.)
 
 ### P2 (Enhancement)
-- Blog/Insights page (linked in Company dropdown)
-- Careers page with job listings
+- Blog/Insights page
+- Animated page transitions between routes
 - Testimonials/social proof section on home page
 - Analytics integration
 
 ### P3 (Future/Backlog)
-- Refactor Home.jsx into smaller components (HeroSection, ServicesSection, etc.)
+- Refactor Home.jsx into smaller components
 - Split App.css into component-specific CSS modules
-- Add page transitions/animations between routes
 - SEO optimization (meta tags, OG tags)
 - CMS integration for blog and case studies
