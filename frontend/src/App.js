@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Work from './pages/Work';
 import Services from './pages/Services';
 import Company from './pages/Company';
-import About from './pages/About';
+import Careers from './pages/Careers';
 import { Toaster } from './components/ui/sonner';
 
 
@@ -20,7 +20,7 @@ function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/services" element={<Services />} />
             <Route path="/company" element={<Company />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </BrowserRouter>
         <Toaster />

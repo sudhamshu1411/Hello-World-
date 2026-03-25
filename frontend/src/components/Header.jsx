@@ -53,9 +53,9 @@ const Header = () => {
   ];
 
   const companyItems = [
-    { title: 'Approach', desc: 'How we work with clients' },
-    { title: 'Careers', desc: 'Join our team' },
-    { title: 'Insights', desc: 'Our latest thinking' },
+    { title: 'Approach', desc: 'How we work with clients', link: '/company' },
+    { title: 'Careers', desc: 'Join our team', link: '/careers' },
+    { title: 'Our Team', desc: 'Meet the people behind STARTON', link: '/company' },
   ];
 
   return (
@@ -102,7 +102,7 @@ const Header = () => {
                   <div className="dropdown-menu">
                     <div className="dropdown-header">The Company</div>
                     {companyItems.map(item => (
-                      <Link key={item.title} to="/company" className="dropdown-item" onClick={() => setCompanyDropdownOpen(false)}>
+                      <Link key={item.title} to={item.link} className="dropdown-item" onClick={() => setCompanyDropdownOpen(false)}>
                         <div className="dropdown-item-content">
                           <span className="dropdown-item-title">{item.title}</span>
                           <span className="dropdown-item-desc">{item.desc}</span>
@@ -113,7 +113,7 @@ const Header = () => {
                 )}
               </div>
 
-              <Link to="/about" className="nav-item" data-testid="nav-about">About</Link>
+              <Link to="/careers" className="nav-item" data-testid="nav-careers">Careers</Link>
             </nav>
 
             <Button className="btn-header-cta" onClick={handleStartProject} data-testid="header-start-project-btn">
@@ -132,7 +132,7 @@ const Header = () => {
           <Link to="/work" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Work</Link>
           <Link to="/services" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Services</Link>
           <Link to="/company" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Company</Link>
-          <Link to="/about" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>About</Link>
+          <Link to="/careers" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
           <Button onClick={handleStartProject} className="btn-primary btn-mobile-cta">Start a Project</Button>
           <div className="mobile-menu-footer">
             <p>&copy; STARTON</p>

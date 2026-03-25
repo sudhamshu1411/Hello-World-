@@ -51,10 +51,10 @@ const Footer = () => {
             </div>
             <div className="footer-column">
               <h4 className="footer-column-title">Company</h4>
-              <Link to="/about" className="footer-link">About</Link>
+              <Link to="/company" className="footer-link">About Us</Link>
               <Link to="/company" className="footer-link">Approach</Link>
-              <Link to="/company" className="footer-link">Insights</Link>
-              <Link to="/company" className="footer-link">Careers</Link>
+              <Link to="/company" className="footer-link">Our Team</Link>
+              <Link to="/careers" className="footer-link">Careers</Link>
             </div>
             <div className="footer-column">
               <h4 className="footer-column-title">Connect</h4>
