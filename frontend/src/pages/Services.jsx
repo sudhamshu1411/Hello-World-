@@ -240,7 +240,7 @@ const Services = () => {
             <h2 className="section-title">Our Process</h2>
             <p className="section-subtitle">Five phases. Zero guesswork. Repeatable results.</p>
           </div>
-          <div className="process-grid" data-testid="process-grid">
+          <div className="process-grid process-grid-5col" data-testid="process-grid">
             {process.map((step, index) => (
               <div key={step.num} className="process-card animate-on-scroll" style={{ animationDelay: `${index * 0.12}s` }} data-testid={`process-step-${step.num}`}>
                 <div className="process-number">{step.num}</div>
