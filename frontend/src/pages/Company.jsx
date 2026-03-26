@@ -2,6 +2,7 @@ import React from 'react';
 import { Users, Lightbulb, TrendingUp, Heart, ArrowRight, Star, Globe, Award, Handshake } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import PageLayout from '../components/PageLayout';
+import SEO from '../components/SEO';
 import { useNavigate } from 'react-router-dom';
 
 const values = [
@@ -96,6 +97,11 @@ const Company = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Company"
+        description="STARTON is a growth partner, not just an agency. Learn about our mission, approach, values, and the team behind 42+ successful projects."
+        path="/company"
+      />
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">

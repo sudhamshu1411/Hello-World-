@@ -55,7 +55,7 @@ const Header = () => {
   const companyItems = [
     { title: 'Approach', desc: 'How we work with clients', link: '/company' },
     { title: 'Careers', desc: 'Join our team', link: '/careers' },
-    { title: 'Our Team', desc: 'Meet the people behind STARTON', link: '/company' },
+    { title: 'Insights', desc: 'Our latest thinking', link: '/insights' },
   ];
 
   return (

@@ -4,7 +4,7 @@ import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
-
+import SEO from '../components/SEO';
 const services = [
   {
     id: 1,
@@ -171,6 +171,11 @@ const Services = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Services"
+        description="Full-spectrum growth solutions — brand identity, web experiences, business strategy, marketing systems, sales enablement, and custom infrastructure."
+        path="/services"
+      />
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">

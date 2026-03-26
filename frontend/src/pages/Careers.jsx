@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Zap, Heart, Globe, Coffee, BookOpen, TrendingUp, Users, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import PageLayout from '../components/PageLayout';
+import SEO from '../components/SEO';
 import { useNavigate } from 'react-router-dom';
 
 const perks = [
@@ -64,6 +65,11 @@ const Careers = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Careers"
+        description="Do the best work of your career at STARTON. Remote-first, ownership culture, and meaningful projects. See open roles in strategy, design, engineering, and marketing."
+        path="/careers"
+      />
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">

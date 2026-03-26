@@ -8,6 +8,7 @@ import { Textarea } from '../components/ui/textarea';
 import { useToast } from '../hooks/use-toast';
 import { mockServices, mockWorkProcess, mockClients } from '../mock';
 import PageLayout from '../components/PageLayout';
+import SEO from '../components/SEO';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -73,6 +74,25 @@ const Home = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="STARTON"
+        description="STARTON is a strategic creative agency that builds brands, websites, and growth systems for ambitious businesses. Strategy that builds momentum."
+        path="/"
+      />
+
+      {/* Organization JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "STARTON",
+        "description": "Strategic creative agency that builds brands, websites, and growth systems for ambitious businesses.",
+        "url": "https://starton.agency",
+        "foundingDate": "2019",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
+        "knowsAbout": ["Brand Strategy", "Web Development", "Digital Marketing", "UX Design", "Growth Strategy"],
+        "areaServed": "Worldwide"
+      })}} />
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">

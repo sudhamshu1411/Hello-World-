@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, ArrowUpRight, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
-
+import SEO from '../components/SEO';
 const projects = [
   {
     id: 1,
@@ -129,8 +129,12 @@ const Work = () => {
 
   return (
     <PageLayout>
-      {/* Page Hero */}
-      <section className="page-hero">
+      <SEO
+        title="Our Work"
+        description="42+ projects delivered. 96% client retention. See the case studies and results behind STARTON's brand, web, strategy, and marketing work."
+        path="/work"
+      />
+      {/* Page Hero */}      <section className="page-hero">
         <div className="container">
           <div className="page-hero-content animate-on-scroll">
             <span className="page-hero-label" data-testid="work-hero-label">Our Work</span>
