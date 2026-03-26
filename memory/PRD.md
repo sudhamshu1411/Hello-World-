@@ -15,7 +15,7 @@ Build a highly-polished, animated landing page and multi-page website for "START
 - Premium footer with pre-footer CTA
 - Fully responsive (mobile, tablet, desktop)
 - Functional contact/consultation form
-- Multi-page routing: Home, Work, Services, Company, Careers
+- Multi-page routing: Home, Work, Services, Company, Careers, Insights
 
 ---
 
@@ -29,24 +29,25 @@ Build a highly-polished, animated landing page and multi-page website for "START
 │   ├── .env
 │   ├── requirements.txt
 │   └── server.py
-├── contracts.md
 └── frontend/
     ├── src/
     │   ├── components/
     │   │   ├── ui/
     │   │   ├── Header.jsx       # Nav with dropdowns, mobile menu
     │   │   ├── Footer.jsx       # Footer with links
-    │   │   └── PageLayout.jsx   # Shared layout wrapper
+    │   │   ├── PageLayout.jsx   # Shared layout wrapper
+    │   │   └── SEO.jsx          # Reusable meta tags component
     │   ├── context/
     │   │   └── ThemeContext.jsx  # Light/dark theme state
     │   ├── pages/
-    │   │   ├── Home.jsx         # Landing page + contact form
+    │   │   ├── Home.jsx         # Landing page + contact form + JSON-LD
     │   │   ├── Work.jsx         # Case studies, featured project, testimonials
     │   │   ├── Services.jsx     # Service cards, process, engagement models
     │   │   ├── Company.jsx      # Mission, values, team, timeline
-    │   │   └── Careers.jsx      # Culture, perks, open roles
+    │   │   ├── Careers.jsx      # Culture, perks, open roles
+    │   │   └── Insights.jsx     # Blog: featured article, category filters, article grid
     │   ├── App.css
-    │   ├── App.js
+    │   ├── App.js               # HelmetProvider + routes
     │   ├── index.css
     │   └── mock.js
     ├── .env
@@ -54,45 +55,41 @@ Build a highly-polished, animated landing page and multi-page website for "START
 ```
 
 ## Tech Stack
-- **Frontend**: React, React Router v6, Tailwind CSS, custom CSS (glassmorphism)
+- **Frontend**: React, React Router v6, react-helmet-async, Tailwind CSS, custom CSS
 - **Backend**: FastAPI, Pydantic, Motor (async MongoDB)
 - **Database**: MongoDB
-- **Styling**: CSS variables for theming, keyframe animations, backdrop-filter
 
 ---
 
 ## What's Been Implemented
 
 ### Phase 1 - Landing Page (Session 1)
-- Full landing page with glassmorphism design
-- Light/dark theme toggle
-- Premium sticky header with dropdown menus
-- Premium footer with pre-footer CTA
-- Animated background (grid, particles, glow orbs)
-- Backend: POST /api/consultations endpoint with MongoDB storage
+- Full glassmorphism landing page with light/dark theme
+- Animated background, premium header/footer
+- Backend: POST /api/consultations with MongoDB
 
 ### Phase 2 - Multi-Page Scaffolding (Session 2)
-- Extracted Header, Footer, PageLayout into reusable components
-- Created ThemeContext for global theme state
-- Added React Router routes
-- 22/22 frontend tests passed
+- Extracted Header, Footer, PageLayout, ThemeContext
+- React Router with 5 routes; 22/22 tests passed
 
 ### Phase 3 - Bug Fixes & Content Enhancement (Session 3)
-- Fixed mobile menu toggle (backdrop-filter containing block issue)
-- **Enhanced Work page**: 8 detailed case studies with outcomes/metrics, featured case study section, client testimonials
-- **Enhanced Services page**: 6 service cards with icons/taglines/feature lists/metrics, "Why STARTON" differentiators, 5-step process, 3 engagement models with CTA
-- **Enhanced Company page**: Mission statement, company stats bar, 4 approach steps, 6 core values, 4 team members with bios, 6-milestone timeline, CTA
-- **Created Careers page**: Culture section (3 cards), 6 perks, 4 open roles with Apply buttons, bottom CTA
-- Removed About page, updated all navigation links
-- Updated Header dropdowns (Company dropdown links to both /company and /careers)
-- Updated Footer links
-- 30+ frontend tests passed (100%)
+- Fixed mobile menu (backdrop-filter containing block issue)
+- Enhanced Work (8 case studies, featured, testimonials), Services (6 detailed cards, 5-step process, engagement models), Company (mission, stats, values, team, timeline)
+- Created Careers page (culture, perks, 4 open roles)
+- 30+ tests passed
+
+### Phase 4 - Blog & SEO (Session 4)
+- **Insights page**: Hero, featured article, 8 articles with category filters (All/Strategy/Branding/Growth/Engineering), gradient article cards with dates/read times
+- **SEO**: react-helmet-async on all 6 pages — unique titles, meta descriptions, OG tags, Twitter cards
+- **JSON-LD**: Organization schema on homepage
+- **Navigation**: Insights added to Company dropdown, Footer, and mobile menu
+- **index.html**: Updated default meta description
+- 20+ tests passed (100%)
 
 ---
 
 ## Key API Endpoints
 - `POST /api/consultations` — submit contact form
-- `GET /api/consultations` — retrieve all submissions
 
 ## Database Schema
 - **consultations**: `{id, name, email, company, message, submitted_at}`
@@ -103,10 +100,10 @@ Build a highly-polished, animated landing page and multi-page website for "START
 
 ### P1 (High value)
 - "Start a Project" dedicated flow: multi-step form/modal
-- Add real case study detail pages (/work/nexus-finance etc.)
+- Individual case study detail pages (/work/nexus-finance etc.)
+- Individual blog article detail pages (/insights/article-slug)
 
 ### P2 (Enhancement)
-- Blog/Insights page
 - Animated page transitions between routes
 - Testimonials/social proof on home page
 - Analytics integration
@@ -114,6 +111,5 @@ Build a highly-polished, animated landing page and multi-page website for "START
 ### P3 (Future/Backlog)
 - Refactor Home.jsx into smaller components
 - Split App.css into component-specific CSS modules
-- SEO optimization (meta tags, OG tags)
 - CMS integration for blog and case studies
 - Memoize particles generation in PageLayout

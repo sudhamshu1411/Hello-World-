@@ -133,6 +133,7 @@ const Header = () => {
           <Link to="/services" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Services</Link>
           <Link to="/company" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Company</Link>
           <Link to="/careers" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
+          <Link to="/insights" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>Insights</Link>
           <Button onClick={handleStartProject} className="btn-primary btn-mobile-cta">Start a Project</Button>
           <div className="mobile-menu-footer">
             <p>&copy; STARTON</p>
