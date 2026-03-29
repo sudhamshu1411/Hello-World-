@@ -1,115 +1,74 @@
 # STARTON Agency Website - PRD
 
 ## Original Problem Statement
-Build a highly-polished, animated landing page and multi-page website for "STARTON" — a strategic creative agency. The design follows a "new age glassmorphism" aesthetic with a purple/blue palette, supporting both light and dark themes.
-
-## Target Audience
-- Startup founders
-- Growing businesses seeking branding/strategy/web services
-- Companies looking for a full-spectrum growth agency
-
-## Core Requirements
-- Glassmorphism design with animated background (particles, grid, glow orbs)
-- Light/dark theme toggle (persisted to localStorage)
-- Premium sticky header with dropdown menus
-- Premium footer with pre-footer CTA
-- Fully responsive (mobile, tablet, desktop)
-- Functional contact/consultation form
-- Multi-page routing: Home, Work, Services, Company, Careers, Insights
-
----
+Build a highly-polished, animated multi-page website for "STARTON" — a strategic creative agency with "new age glassmorphism" design, purple/blue palette, light/dark themes.
 
 ## Architecture
-
 ```
 /app
-├── backend/
+├── backend/ (FastAPI + MongoDB)
 │   ├── models/consultation.py
 │   ├── routes/consultations.py
-│   ├── .env
-│   ├── requirements.txt
 │   └── server.py
-└── frontend/
+└── frontend/ (React + React Router)
     ├── src/
     │   ├── components/
-    │   │   ├── ui/
-    │   │   ├── Header.jsx       # Nav with dropdowns, mobile menu
-    │   │   ├── Footer.jsx       # Footer with links
-    │   │   ├── PageLayout.jsx   # Shared layout wrapper
-    │   │   └── SEO.jsx          # Reusable meta tags component
-    │   ├── context/
-    │   │   └── ThemeContext.jsx  # Light/dark theme state
+    │   │   ├── Header.jsx, Footer.jsx, PageLayout.jsx, SEO.jsx
+    │   ├── context/ThemeContext.jsx
+    │   ├── data/
+    │   │   ├── projects.js    # 8 case studies with full detail content
+    │   │   └── articles.js    # 8 articles with full body content
     │   ├── pages/
-    │   │   ├── Home.jsx         # Landing page + contact form + JSON-LD
-    │   │   ├── Work.jsx         # Case studies, featured project, testimonials
-    │   │   ├── Services.jsx     # Service cards, process, engagement models
-    │   │   ├── Company.jsx      # Mission, values, team, timeline
-    │   │   ├── Careers.jsx      # Culture, perks, open roles
-    │   │   └── Insights.jsx     # Blog: featured article, category filters, article grid
-    │   ├── App.css
-    │   ├── App.js               # HelmetProvider + routes
-    │   ├── index.css
-    │   └── mock.js
-    ├── .env
+    │   │   ├── Home.jsx, Work.jsx, CaseStudy.jsx
+    │   │   ├── Services.jsx, Company.jsx, Careers.jsx
+    │   │   └── Insights.jsx, ArticleDetail.jsx
+    │   ├── App.css, App.js
     └── package.json
 ```
 
-## Tech Stack
-- **Frontend**: React, React Router v6, react-helmet-async, Tailwind CSS, custom CSS
-- **Backend**: FastAPI, Pydantic, Motor (async MongoDB)
-- **Database**: MongoDB
-
----
-
 ## What's Been Implemented
 
-### Phase 1 - Landing Page (Session 1)
-- Full glassmorphism landing page with light/dark theme
-- Animated background, premium header/footer
-- Backend: POST /api/consultations with MongoDB
+### Phase 1-2: Landing Page + Multi-Page Scaffolding
+- Glassmorphism landing page, header/footer, theme toggle, routing, contact form
 
-### Phase 2 - Multi-Page Scaffolding (Session 2)
-- Extracted Header, Footer, PageLayout, ThemeContext
-- React Router with 5 routes; 22/22 tests passed
+### Phase 3: Content Enhancement
+- Enhanced Work (8 case studies, featured, testimonials), Services (6 cards, 5-step process, engagement models), Company (mission, stats, values, team, timeline), Careers (culture, perks, 4 roles)
 
-### Phase 3 - Bug Fixes & Content Enhancement (Session 3)
-- Fixed mobile menu (backdrop-filter containing block issue)
-- Enhanced Work (8 case studies, featured, testimonials), Services (6 detailed cards, 5-step process, engagement models), Company (mission, stats, values, team, timeline)
-- Created Careers page (culture, perks, 4 open roles)
-- 30+ tests passed
+### Phase 4: Blog & SEO
+- Insights page (featured article, 8 articles, category filters)
+- SEO: react-helmet-async on all pages, JSON-LD on homepage
 
-### Phase 4 - Blog & SEO (Session 4)
-- **Insights page**: Hero, featured article, 8 articles with category filters (All/Strategy/Branding/Growth/Engineering), gradient article cards with dates/read times
-- **SEO**: react-helmet-async on all 6 pages — unique titles, meta descriptions, OG tags, Twitter cards
-- **JSON-LD**: Organization schema on homepage
-- **Navigation**: Insights added to Company dropdown, Footer, and mobile menu
-- **index.html**: Updated default meta description
-- 20+ tests passed (100%)
+### Phase 5: Detail Pages (Current Session)
+- **Case Study pages** (`/work/:slug`): Hero, meta bar (client/industry/timeline/team), challenge, approach steps, results grid (4 metrics), deliverables checklist, client testimonial, prev/next navigation, CTA
+- **Article pages** (`/insights/:slug`): Header with author/date/readtime, gradient visual, full body content (headings/subheadings/paragraphs/lists), author card, prev/next navigation
+- **Shared data**: Extracted to `/data/projects.js` (8 projects) and `/data/articles.js` (8 articles)
+- **Clickable cards**: Work and Insights list pages link to detail pages
+- **Not Found handling**: Invalid slugs show proper 404 message
+- 18/18 tests passed (100%)
 
----
+## Routes
+- `/` — Home (landing + contact form)
+- `/work` — Case studies grid
+- `/work/:slug` — Case study detail
+- `/services` — Service offerings
+- `/company` — Mission, values, team, timeline
+- `/careers` — Culture, perks, open roles
+- `/insights` — Blog/articles grid
+- `/insights/:slug` — Article detail
 
-## Key API Endpoints
-- `POST /api/consultations` — submit contact form
-
-## Database Schema
-- **consultations**: `{id, name, email, company, message, submitted_at}`
-
----
+## Key API: `POST /api/consultations`
 
 ## Prioritized Backlog
 
-### P1 (High value)
-- "Start a Project" dedicated flow: multi-step form/modal
-- Individual case study detail pages (/work/nexus-finance etc.)
-- Individual blog article detail pages (/insights/article-slug)
+### P1
+- "Start a Project" multi-step form/modal
 
-### P2 (Enhancement)
-- Animated page transitions between routes
-- Testimonials/social proof on home page
+### P2
+- Animated page transitions
 - Analytics integration
+- Testimonials/social proof on homepage
 
-### P3 (Future/Backlog)
-- Refactor Home.jsx into smaller components
-- Split App.css into component-specific CSS modules
-- CMS integration for blog and case studies
-- Memoize particles generation in PageLayout
+### P3
+- Refactor Home.jsx / App.css into smaller modules
+- CMS integration
+- Memoize particles in PageLayout
